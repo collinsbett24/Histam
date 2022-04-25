@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+  <a class="navbar-brand">General Statistics</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample" arial-controls = "navbarsExample" arial-expand="false" arial-label = "Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"> <button style="margin: 10px;" id="coupe" (click)="onCoupe()" type="button" class="btn btn-outline-dark btn-sm">Most Searched</button></li>
+      <li class="nav-item"> <button style="margin: 10px;" id="sedan" (click)="onSedan()" type="button" class="btn btn-outline-dark btn-sm">Searche & No Result</button></li>
+      <li class="nav-item"> <button style="margin: 10px;" id="toyota" (click)="onToyota()" type="button" class="btn btn-outline-dark btn-sm">Least Searched</button></li>
+      <!-- <li class="nav-item"> <button style="margin: 10px;" id=" nissan" (click)="onNissan()" type="button" class="btn btn-outline-dark btn-sm">Never Searched</button></li> -->
+    </ul>
+  </div>
+  
+</nav>
+<hr/>
+<div>
+    <div>
+      <app-most-searched *ngIf="!coupeHidden"></app-most-searched>
+      <app-least-searched *ngIf="!toyotaHidden"></app-least-searched>
+      <app-no-result *ngIf="!sedanHidden"></app-no-result>
+      <!-- <app-nissan *ngIf="!nissanHidden"></app-nissan>     -->
+    </div>
+  </div>

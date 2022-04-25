@@ -1,0 +1,50 @@
+<h2 class="text-center">Edit Document</h2>
+<div class="row">
+	<div class="col-md-3">
+		
+	</div>
+	<div class="col-md-6 col-md-offset-3">
+		<div class="jumbotron">
+			<div class="my-container">
+			<ng-template #customLoadingTemplate>
+				<div class="custom-class">
+					<h3>
+						Loading...
+					</h3>
+				</div>
+			</ng-template>
+			<ngx-loading [show]="loading" [config]="{backdropBorderRadius: '3px'}" [template]="customLoadingTemplate"></ngx-loading>
+		</div>
+		<div>
+			<div *ngIf="alert" class="alert alert-success alert-dismissible fade show">
+			<strong>Success !</strong> Your data has been updated successfully.
+			<button (click)="closeAlert()" type="=button" class="close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			
+		</div>
+		</div>
+			<form [formGroup]="editForm" method="post" (ngSubmit)="updateData(editForm)" autocomplete="off">
+				<div class="form-group">
+					<label for="name">Document Name:</label>
+					<input type="text" name="name" formControlName="name" autocomplete="off" class="form-control input-sm" placeholder="name" required=ngModel>
+				</div>
+				<div class="form-group">
+					<label for="description">Document Description</label>
+					<textarea type="text" style="height: 130pt;" name="description" formControlName="description" autocomplete="off" class="form-control textarea-sm" placeholder="Description" required=ngModel></textarea>
+				</div>
+				<div class="form-group">
+					<label for="photo">Upload File</label>
+					<input type="file" id="file" (change)="onFileChanged($event)"  autocomplete="off" class="form-control input-sm" placeholder="Choose File" required=ngModel>
+				</div>
+				<div class="form-group">
+					<button type="submit" [disabled] = "!editForm.valid" class="btn btn-success">Update Document</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-md-3"></div>
+</div>
+<!-- <div *ngFor = "let item of collection">
+	{{item.name}}
+</div> -->

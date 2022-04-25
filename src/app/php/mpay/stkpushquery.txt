@@ -1,0 +1,21 @@
+{
+                    "requestId":"ws_CO_010120211552329182",
+                    "errorCode": "500.001.1001",
+                    "errorMessage": "The transaction is being processed"
+                }
+            {
+                    "requestId":"ws_CO_010120211554392664",
+                    "errorCode": "500.001.1001",
+                    "errorMessage": "The transaction is being processed"
+                }
+            {
+                    "requestId":"ws_CO_010120211556447928",
+                    "errorCode": "500.001.1001",
+                    "errorMessage": "The transaction is being processed"
+                }
+            {
+                    "requestId":"ws_CO_010120211603222882",
+                    "errorCode": "500.001.1001",
+                    "errorMessage": "The transaction is being processed"
+                }
+            

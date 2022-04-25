@@ -1,0 +1,53 @@
+<nav>
+  <div align="center" style=" padding-top: 10px; background-color: #ffff00">
+    <span style="color: red; font-size:40pt; font-style: bold">HISTAM</span>
+  </div>
+</nav>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        
+        <a class="navbar-brand" routerLink="/search">{{title}}</a>
+        <span class="menu-spacer"></span>
+        <div style="float: right;">
+          <a mat-button routerLink="/search">Home</a>
+          <a mat-button *ngIf="logoutbtn" routerLink="/add">Add file</a>
+          <a mat-button *ngIf="logoutbtn" routerLink="/stats">Statistics</a>
+          <!-- <a mat-button *ngIf = "logoutbtn" class="btn btn-block" (click) ="logout()">Logout</a> -->
+
+        </div>
+        <span class="menu-spacer"></span>
+        <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+      </mat-toolbar-row>
+   </mat-toolbar>
+      <mat-sidenav-container>
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+          <div>
+             <a mat-list-item  routerLink="" routerLinkActive="active">Home</a>
+             <a mat-list-item *ngIf="loginbtn" routerLink="/login" routerLinkActive="active">Admin Login</a>
+             <a mat-list-item *ngIf="logoutbtn" routerLink="/monitor" routerLinkActive="active">Monitor Documents</a>
+            <a mat-list-item *ngIf = "logoutbtn" class="btn btn-block" (click) ="logout()">Logout</a>
+            </div>
+        </mat-nav-list>
+      </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- <div class="sect" [ngStyle]="{background-image: 'url(./images/' + copy.img +')'}"> -->
+     <!--  <div [style.background-image]="'url(../../assets/' + copy.img + ')'"> -->
+       <!-- <div [ngStyle]="{'background-image' : getUrl()}"> -->
+       	<div class="body">
+
+      <router-outlet></router-outlet>
+
+    </div>
+    <div>
+    <footer>
+      <app-s-footer></app-s-footer>
+    </footer>
+    </div>
+
+  </mat-sidenav-content>
+
+  
+</mat-sidenav-container>

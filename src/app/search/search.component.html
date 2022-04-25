@@ -1,0 +1,71 @@
+	
+	<div class="searchMain">
+			<div>
+				<br>
+			</div>
+			<div  style="align-items: center;" class="bettr">
+			<div align="center" >
+		      <textarea
+		        type="text"
+		        class="form-control"
+		        placeholder="Search by title"
+		        [(ngModel)]="title"
+		        [typeahead]="fName"
+		        typeaheadOptionField="name"
+		        [typeaheadScrollable]="true"
+		        (typeaheadOnSelect)="onSelect($event)"></textarea>
+		        <button
+		          class="btn btn-primary" type="button"(click)="searchTitle()">
+		          Search
+		        </button>
+		      </div>
+		 </div>
+		 <div class="my-container">
+					<ng-template #customLoadingTemplate>
+						<div class="custom-class">
+							<h3>
+								Loading...
+							</h3>
+						</div>
+					</ng-template>
+					<ngx-loading [show]="loading" [config]="{backdropBorderRadius: '3px'}" [template]="customLoadingTemplate"></ngx-loading>
+				</div>
+		 <div align="center" style="color: red;">{{message}}</div>
+		 <div align="center" style="margin: 10px;" *ngFor = "let item of collection">
+			<mat-card class ="example-card">
+				<mat-card-header>
+					<div mat-card-avatar class="example-header-image"></div>
+					<mat-card-title>
+						{{item.name}}
+					</mat-card-title>
+					<!-- <mat-card-subtitle>{{item.phone}}</mat-card-subtitle> -->
+				</mat-card-header>
+				<mat-card-content>
+					<ngb-accordion [closeOthers]="true" activeIds = "static-1">
+				<ngb-panel>
+					<ng-template ngbPanelTitle>
+						<span>&#9733;<b>{{item.filename}}</b>&#9733;</span><br>
+						<i>click for more information</i>
+					</ng-template>
+					<ng-template ngbPanelContent>
+						{{item.description}}
+
+					</ng-template>
+				</ngb-panel>
+			</ngb-accordion>		
+				</mat-card-content>
+				<mat-card-actions>
+					<!-- <p>{{item.path}} , {{item.filename}}</p> -->
+					<!-- <a (click)="download(item.id, item.filename)">Download File</a> -->
+					<!-- <button mat-button (click)="addToCart(item)">Buy</button> -->
+					<a [routerLink]="['/download', item.id]">Download</a>
+					<!-- <a routerLink="/download">Download</a> -->
+					<!-- <button mat-button (click)="addToFav(item)" >Add to Favourite</button> -->
+				</mat-card-actions>
+			</mat-card>
+			<div>
+				
+			</div>
+			
+		</div>
+	</div>

@@ -1,0 +1,73 @@
+<br><br>
+<div class="row">
+	<div class="col-md-3"></div>
+	<div class="col-md-6 col-md-offset-3">
+		<div class="jumbotron" align="center">
+			<div class="my-container">
+			<ng-template #customLoadingTemplate>
+				<div class="custom-class">
+					<h3>
+						Loading...
+					</h3>
+				</div>
+			</ng-template>
+			<ngx-loading [show]="loading" [config]="{backdropBorderRadius: '3px'}" [template]="customLoadingTemplate"></ngx-loading>
+		</div>
+			<!-- <input id="name" name="name" class="form-control" required minlength="7" appForbiddenName="bob" [(ngModel)]="p_number" #name="ngModel" >
+			<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+				  <div *ngIf="name.errors.required">
+				    Name is required.
+				  </div>
+				  <div *ngIf="name.errors.minlength">
+				    Name must be at least 4 characters long.
+				  </div>
+				  <div *ngIf="name.errors.forbiddenName">
+				    Name cannot be Bob.
+				  </div>
+
+			</div> -->
+			<div class="nav">
+				<a class="spacer"></a>
+				<button type="submit" (click)="goBack()">Back</button>
+			</div>
+				<div class="form-group" align="center">
+					<span><h2><b>Make Mpesa Payments</b></h2></span>
+				</div>
+				<div class="form-group">
+					<label for="p_number" style="color: purple;"><i><b>Document price: Ksh. 10</b></i></label>
+				</div>
+				<div class="md-form">
+					<div class="input">
+					     <label>Enter Your Phone Number:</label>
+						<input id="name" type="p_number" name="name" class="form-control" placeholder="07xx xxx xxx" required minlength="10" maxlength="10" appForbiddenName="bob" [(ngModel)]="p_number" #name="ngModel" >
+						<br>
+						<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+							  <div *ngIf="name.errors.required">
+							    Your phone number is required.
+							  </div>
+							  <div *ngIf="name.errors.minlength">
+							    Your phone number must be 10  characters long.
+							  </div>
+							  <div *ngIf="name.errors.maxlength">
+							    Your phone number must be 10  characters long.
+							  </div>
+							  <div *ngIf="name.errors.forbiddenName">
+							    Your phone number cannot be Bob.
+							  </div>
+
+						</div>
+					      	
+						        <input style="width: 100px;" type="submit" value="Pay" [disabled]="name.invalid"
+						          class="btn btn-outline-secondary" type="button"(click)="Pay()">
+						  
+					    </div>
+				 </div>
+			<div>
+				<br>
+				
+				<button [disabled]="CRequestID.length === 0" type="submit" (click)="DownloadF()">Download</button>
+			</div>
+		</div>
+	</div>
